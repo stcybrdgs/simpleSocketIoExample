@@ -14,16 +14,16 @@ io.on('connection', (socket) => {
   const userId = socket.id.substr(0, 2)
   console.log(`a user connected: ${userId}`)
 
-  // get messages from client
+  // get message from client
   socket.on('message', (msg) => {
     console.log(msg)
 
-    // send messages to client
+    // send message to client
     io.emit('message', `${userId} said ${msg}`)
   })
 })
 
-// tell the server to listen on specified port
+// listen for messages on specified port
 http.listen(PORT, () => {
   console.log(`listening on localhost: ${PORT}`)
 })

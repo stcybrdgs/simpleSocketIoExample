@@ -11,14 +11,14 @@ function addMessageToList(text) {
   msgList.appendChild(el)
 }
 
-// Get messages from server
+// Get message from server
 socket.on('message', (text) => {
   addMessageToList(text)
 })
 
 // Listen for button click
 submitBtn.onclick = () => {
-  // Send messages to server
+  // Send message to server
   socket.emit('message', msgInput.value)
 }
 
